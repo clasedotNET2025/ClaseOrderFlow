@@ -9,7 +9,7 @@ namespace OrderFlowClase.API.Identity.Controllers
     public class AuthController : ControllerBase
     {
         private IEnumerable<User> _users = new List<User>();
-
+        //private
 
         [HttpPost("register")]
         public IActionResult Register([FromBody] User user)
