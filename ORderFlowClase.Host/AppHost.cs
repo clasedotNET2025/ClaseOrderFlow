@@ -22,7 +22,10 @@ var identity = builder.AddProject<Projects.OrderFlowClase_API_Identity>("orderfl
 
 
 builder.AddProject<Projects.OrderFlowClase_ApiGateway>("orderflowclase-apigateway")
+    .WithReference(redis)
     .WithReference(identity)
+    .WaitFor(redis)
     .WaitFor(identity);
+
 
 builder.Build().Run();
