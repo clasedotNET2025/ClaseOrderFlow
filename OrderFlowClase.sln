@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.0.11205.157
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36623.8 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ORderFlowClase.Host", "ORderFlowClase.Host\ORderFlowClase.Host.csproj", "{434B6ECC-2EAA-4576-A80D-6416016EE0BF}"
 EndProject
@@ -15,6 +15,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderFlowClase.ApiGateway", "OrderFlowClase.ApiGateway\OrderFlowClase.ApiGateway.csproj", "{95A11FBE-577E-1321-CB33-D3785E93DFFD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderFlowClase.ServiceDefaults", "OrderFlowClase.ServiceDefaults\OrderFlowClase.ServiceDefaults.csproj", "{861B17E4-9B75-4862-B2EC-34FCB6E9F939}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderFlowClase.Shared", "OrderFlowClase.Shared\OrderFlowClase.Shared.csproj", "{D199D111-9FEA-470C-B248-4B129A0F685D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{861B17E4-9B75-4862-B2EC-34FCB6E9F939}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{861B17E4-9B75-4862-B2EC-34FCB6E9F939}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{861B17E4-9B75-4862-B2EC-34FCB6E9F939}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D199D111-9FEA-470C-B248-4B129A0F685D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D199D111-9FEA-470C-B248-4B129A0F685D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D199D111-9FEA-470C-B248-4B129A0F685D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D199D111-9FEA-470C-B248-4B129A0F685D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
