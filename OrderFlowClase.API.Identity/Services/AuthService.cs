@@ -1,6 +1,9 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using OrderFlowClase.API.Identity.Dto.Auth;
+using OrderFlowClase.Shared;
+using OrderFlowClase.Shared.Events;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -11,17 +14,19 @@ namespace OrderFlowClase.API.Identity.Services
     {
 
         private UserManager<IdentityUser> _userManager;
-        private RoleManager<IdentityRole> _roleManager;
         private readonly IConfiguration _configuration;
+        private readonly IPublishEndpoint _publishEndpoint;
+
 
         public AuthService(
             UserManager<IdentityUser> userManager,
-            RoleManager<IdentityRole> roleManager,
-            IConfiguration configuration)
+            IConfiguration configuration,
+            IPublishEndpoint publishEndpoint
+        )
         {
             _userManager = userManager;
-            _roleManager = roleManager;
             _configuration = configuration;
+            _publishEndpoint = publishEndpoint;
         }
 
         public async Task<ResponseLogin?> Login(string email, string password)
@@ -65,11 +70,11 @@ namespace OrderFlowClase.API.Identity.Services
                 issuer: issuer,
                 audience: audience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(expirationMinutes),
+                expires: DateTime.UtcNow.AddMinutes(expirationMinutes),
                 signingCredentials: creds
             );
 
-            var encryptedToken =  new JwtSecurityTokenHandler().WriteToken(token);
+            var encryptedToken = new JwtSecurityTokenHandler().WriteToken(token);
 
             return new ResponseLogin
             {
@@ -83,12 +88,18 @@ namespace OrderFlowClase.API.Identity.Services
 
         public async Task<bool> Register(string email, string password)
         {
-
             var result = await _userManager.CreateAsync(new IdentityUser
             {
                 UserName = email.Split("@")[0],
                 Email = email
             }, password);
+
+            var user = await _userManager.FindByEmailAsync(email);
+
+            if (user != null)
+            {
+                await _publishEndpoint.Publish(new UserCreatedEvent(user.Id, user.Email!));
+            }
 
             if (result != null) return true;
 

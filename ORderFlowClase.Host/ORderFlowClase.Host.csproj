@@ -13,12 +13,14 @@
   <ItemGroup>
     <PackageReference Include="Aspire.Hosting.AppHost" />
     <PackageReference Include="Aspire.Hosting.PostgreSQL" />
+    <PackageReference Include="Aspire.Hosting.RabbitMQ" />
     <PackageReference Include="Aspire.Hosting.Redis" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\OrderFlowClase.API.Identity\OrderFlowClase.API.Identity.csproj" />
     <ProjectReference Include="..\OrderFlowClase.ApiGateway\OrderFlowClase.ApiGateway.csproj" />
+    <ProjectReference Include="..\OrderFlowClase.Notifications\OrderFlowClase.Notifications.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,6 +1,10 @@
-using System.Security.Principal;
-
 var builder = DistributedApplication.CreateBuilder(args);
+
+var rabbit = builder
+    .AddRabbitMQ("rabbitmq")
+    .WithLifetime(ContainerLifetime.Persistent)
+    .WithDataVolume("rabbitmq-data")
+    .WithManagementPlugin();
 
 var postgres = builder
     .AddPostgres("postgres")
@@ -18,6 +22,8 @@ var db = postgres.AddDatabase("identity");
 
 var identity = builder.AddProject<Projects.OrderFlowClase_API_Identity>("orderflowclase-api-identity")
     .WaitFor(db)
+    .WaitFor(rabbit)
+    .WithReference(rabbit)
     .WithReference(db);
 
 
@@ -26,6 +32,11 @@ builder.AddProject<Projects.OrderFlowClase_ApiGateway>("orderflowclase-apigatewa
     .WithReference(identity)
     .WaitFor(redis)
     .WaitFor(identity);
+
+
+builder.AddProject<Projects.OrderFlowClase_Notifications>("orderflowclase-notifications")
+    .WaitFor(rabbit)
+    .WithReference(rabbit);
 
 
 builder.Build().Run();
