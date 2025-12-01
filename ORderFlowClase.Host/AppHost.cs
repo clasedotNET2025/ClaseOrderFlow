@@ -1,5 +1,11 @@
 var builder = DistributedApplication.CreateBuilder(args);
 
+var mailServer = builder
+    .AddContainer("maildev", "maildev/maildev:latest")
+    .WithLifetime(ContainerLifetime.Persistent)
+    .WithHttpEndpoint(port: 1080, targetPort: 1080, name: "web")
+    .WithEndpoint(port: 1025, targetPort: 1025, name: "smtp");
+
 var rabbit = builder
     .AddRabbitMQ("rabbitmq")
     .WithLifetime(ContainerLifetime.Persistent)

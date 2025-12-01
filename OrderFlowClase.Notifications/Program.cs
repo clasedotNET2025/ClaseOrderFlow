@@ -5,6 +5,8 @@ var builder = Host.CreateApplicationBuilder(args);
 
 builder.AddServiceDefaults();
 
+builder.Services.AddSingleton<IEmailService, EmailService>();
+
 builder.Services.AddMassTransit(x =>
 {
     // Register consumers
