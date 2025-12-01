@@ -81,9 +81,6 @@ namespace OrderFlowClase.API.Identity.Services
                 Token = encryptedToken,
                 ExpirationAtUtc = DateTime.UtcNow.AddMinutes(expirationMinutes)
             };
-
-
-
         }
 
         public async Task<bool> Register(string email, string password)

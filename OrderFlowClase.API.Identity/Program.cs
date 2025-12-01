@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.OpenApi;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using OrderFlowClase.API.Identity;
+using OrderFlowClase.API.Identity.Controllers;
+using OrderFlowClase.API.Identity.MinimalControllers;
 using OrderFlowClase.API.Identity.Services;
 using Scalar.AspNetCore;
 using System.Text;
@@ -115,6 +117,28 @@ builder.Services.AddAuthentication(options =>
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
+
+//app.MapPost("/api/v2/auth/register", HandleAsync);
+
+//async Task<IResult> HandleAsync(
+//    User user,
+//    HttpContext context,
+//    IAuthService authService)
+//{
+//    var result = await authService.Register(user.Email, user.Password);
+
+//    if (!result)
+//    {
+//        return Results.BadRequest("User registration failed.");
+//    }
+
+//    return Results.Ok("User registered successfully.");
+//}
+
+app.AddRegisterEndpoints();
+app.AddLoginEndpoints();
+
+//app.MapPost
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
