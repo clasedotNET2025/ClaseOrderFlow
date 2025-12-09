@@ -21,6 +21,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderFlowClase.Shared", "Or
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderFlowClase.Notifications", "OrderFlowClase.Notifications\OrderFlowClase.Notifications.csproj", "{018B66AB-AF4B-884F-C31D-98F877703170}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bitmex.Testnet.Example", "Bitmex.Testnet.Example\Bitmex.Testnet.Example.csproj", "{DC426CFA-D9BF-4C63-9056-896BF2F110BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderFlowClase.Api.Identity.Tests", "OrderFlowClase.Api.Identity.Tests\OrderFlowClase.Api.Identity.Tests.csproj", "{27E9DB0B-7AB2-43CC-854E-5B3D2EAB2337}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +55,14 @@ Global
 		{018B66AB-AF4B-884F-C31D-98F877703170}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{018B66AB-AF4B-884F-C31D-98F877703170}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{018B66AB-AF4B-884F-C31D-98F877703170}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC426CFA-D9BF-4C63-9056-896BF2F110BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC426CFA-D9BF-4C63-9056-896BF2F110BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC426CFA-D9BF-4C63-9056-896BF2F110BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC426CFA-D9BF-4C63-9056-896BF2F110BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E9DB0B-7AB2-43CC-854E-5B3D2EAB2337}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E9DB0B-7AB2-43CC-854E-5B3D2EAB2337}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E9DB0B-7AB2-43CC-854E-5B3D2EAB2337}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E9DB0B-7AB2-43CC-854E-5B3D2EAB2337}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
